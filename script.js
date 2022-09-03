@@ -69,7 +69,8 @@ function whoIsWinner(playerWin,computerWin){
 
 function game() {
     for (let i = 0; i < 5; i++) {
-        const playerSelection = prompt("Please choose between paper, scissors, and rock!").toLowerCase();
+        const playerS = prompt("Please choose between paper, scissors, and rock!");
+        playerSelection = playerS.toLowerCase();
         if (gameItems.includes(playerSelection) === false) {
             alert("The input is incorrec! You must select on of 'Rock','Paper','Scissors'");
             i--;
