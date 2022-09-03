@@ -9,7 +9,7 @@ function computerPlay(){
     const rnd = gameItems[Math.floor(Math.random()* 3)];
     return rnd;
 }
-
+//This function check between 'Rock','Paper','Scissors' to find winner!
 function playRound(playerSelection,computerSelection) {
     if(playerSelection === computerSelection){
         console.log("Equal! We do not have a winner!");
@@ -53,6 +53,7 @@ function playRound(playerSelection,computerSelection) {
         }
     }
 } 
+//Find the winner and One unit is added to the winner
 function whoIsWinner(playerWin,computerWin){
     if (playerWin) {
         playerScore ++;
@@ -66,10 +67,11 @@ function whoIsWinner(playerWin,computerWin){
         console.log(`Player Score is : ${playerScore} <--> Computer Score is : ${computerScore} `);
     }
 }
-
+//ُStart the game 5 round to find the winner!
 function game() {
     for (let i = 0; i < 5; i++) {
-        const playerSelection = prompt("Please choose between paper, scissors, and rock!").toLowerCase();
+        const playerS = prompt("Please choose between paper, scissors, and rock!");
+        playerSelection = playerS.toLowerCase();
         if (gameItems.includes(playerSelection) === false) {
             alert("The input is incorrec! You must select on of 'Rock','Paper','Scissors'");
             i--;
@@ -89,5 +91,3 @@ function game() {
 }
 
 console.log(game());
-
-
