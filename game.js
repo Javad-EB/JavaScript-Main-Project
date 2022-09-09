@@ -1,3 +1,4 @@
+
 const game = () => {
     let playerS = 0;
     let computerS = 0;
@@ -35,8 +36,8 @@ const game = () => {
                 //Set Time out
                 setTimeout(() => {
                     //Who is winner?
-                    playRound(this.textContent, computerSelection)
-                    
+                    playRound(this.textContent, computerSelection);
+                    gameEnd();
                     //updating image
                     playerHand.src =`./assets/${this.textContent}.png`;
                     computerHand.src = `./assets/${computerSelection}.png`;
@@ -54,10 +55,7 @@ const game = () => {
         const computerScore = document.querySelector(".computer-score p");
         playerScore.textContent = playerS;
         computerScore.textContent = computerS;
-
-
     }
-
 
     const playRound = (playerSelection,computerSelection) => {
         const winner = document.querySelector('.winner');
@@ -116,6 +114,20 @@ const game = () => {
             }
         }
     } 
+
+    function gameEnd() {
+        if(playerS === 5 || computerS === 5) {
+            document.querySelector('.rock').disabled = true;
+            document.querySelector('.paper').disabled = true;
+            document.querySelector('.scissors').disabled = true;
+            const winner = document.querySelector('.winner');
+            if (playerS > computerS) {
+                winner.textContent = 'You win the game!';
+            } else if (computerS > playerS) {
+                winner.textContent = 'Computer win the game!';
+            }
+        }
+    }
     startGame();
     playMatch();
 };
